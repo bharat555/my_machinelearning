@@ -28,13 +28,20 @@ print(dataset.describe())
 print(dataset.groupby('class').size())
 
 #box and whisker plots
-dataset.plot(kind='box', subplots=True, layout=(2,2), sharex=False, sharey=False)
-pyplot.show()
+#dataset.plot(kind='box', subplots=True, layout=(2,2), sharex=False, sharey=False)
+#pyplot.show()
 
 #histograms
-dataset.hist()
-pyplot.show()
+#dataset.hist()
+#pyplot.show()
 
 #scatter plot matrix
-scatter_matrix(dataset)
-pyplot.show()
+#scatter_matrix(dataset)
+#pyplot.show()
+
+# Split out validation dataset
+array = dataset.values
+X = array[:,0:4]
+y = array[:,4]
+X_train,X_validation,Y_train,Y_validation=train_test_split(X,y,test_size=0.20, random_state=1)
+
